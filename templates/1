@@ -1,0 +1,21 @@
+<VirtualHost *:80>
+  ServerName 'www.rajeswaribadeti.com'
+  ServerAdmin 'rajeswaribadeti@gmail.com'
+
+  DocumentRoot <%= node['lamp']['web']['document_root'] %>
+  <Directory "/">
+          Options FollowSymLinks
+          AllowOverride None
+  </Directory>
+  <Directory <%= node['lamp']['web']['document_root'] %> >
+          Options Indexes FollowSymLinks MultiViews
+          AllowOverride None
+          Require all granted
+  </Directory>
+
+<html>
+  <body>
+    <h1>hello world</h1>
+  </body>
+</html>
+</VirtualHost>

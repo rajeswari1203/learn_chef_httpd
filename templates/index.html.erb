@@ -1,0 +1,16 @@
+<VirtualHost *:80>
+  ServerName cheftest
+  ServerAdmin 'rajeswaribadeti@gmail.com'
+
+  DocumentRoot <%= node['learn_chef_httpd']['web']['document_root'] %>
+  <Directory "/">
+          Options FollowSymLinks
+          AllowOverride None
+  </Directory>
+  <Directory <%= node['learn_chef_httpd']['web']['document_root'] %> >
+          Options Indexes FollowSymLinks MultiViews
+          AllowOverride None
+          Require all granted
+  </Directory>
+
+</VirtualHost>
